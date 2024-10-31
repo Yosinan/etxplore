@@ -1,6 +1,6 @@
 # EtXplore
 
-![Coffee Ceremony](assets/coffee.jpg)
+![Coffee Ceremony](assets/culture.jpg)
 
 EtXplore is a web application that allows users to explore Ethiopian culture, history, and traditions. The application provides users with a platform to learn about Ethiopia's diverse culture, history, and traditions through interactive content such as articles, videos, and images. Users can also engage with the content by commenting, liking, and sharing it with others. EtXplore aims to promote Ethiopian culture and heritage by providing users with an engaging and informative platform to learn and explore.
 
