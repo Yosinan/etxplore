@@ -23,3 +23,59 @@ EtXplore is a web application that allows users to explore Ethiopian culture, hi
 - **Frontend**: React, Redux, Tailwind CSS
 - **Backend**: Laravel
 - **Database**: MySQL
+
+## Installation
+
+1. Clone the repository:
+
+```bash 
+git clone https://github.com/Yosinan/etxplore
+```
+
+2.1 For the backend, navigate to the `api` directory:
+
+```bash
+cd api
+```
+
+2.2 Install the dependencies:
+
+```bash
+composer install
+```
+
+2.3 Create a `.env` file by copying the `.env.example` file:
+
+```bash
+cp .env.example .env
+```
+
+2.4 Generate an application key:
+
+```
+php artisan key:generate
+```
+
+2.5 Create a new database and update the `.env` file with your database credentials:
+
+```
+DB_CONNECTION=mysql
+DB_HOST=
+DB_PORT=
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+```
+
+2.6 Run the migrations to create the database tables:
+
+```
+php artisan migrate
+```
+
+2.7 Start the Laravel server:
+
+```
+php artisan serve
+```
+
