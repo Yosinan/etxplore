@@ -54,10 +54,15 @@ Route::middleware('guest')->group(function () {
     Route::apiResource('tags', TagController::class);
     Route::apiResource('regions', RegionController::class);
 
+    // filter articles
     Route::get('/articles/filter', [ArticleController::class, 'filterArticles']);
+
+    // filter articles by categories
     Route::get('/articles/filterByCategories', [ArticleController::class, 'filterByCategories']);
     Route::get('/articles/search', [ArticleController::class, 'search']);
     Route::apiResource('articles', ArticleController::class)->except(['filterByCategories', 'search', 'filterArticles']);
+
+    // filter articles by region
     Route::get('/articles/filterByRegion/{region_id}', [ArticleController::class, 'filterByRegion']);
     
     

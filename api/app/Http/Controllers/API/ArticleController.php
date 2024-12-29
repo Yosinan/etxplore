@@ -160,45 +160,6 @@ class ArticleController extends Controller
             $culturalArticle = CulturalArticle::findOrFail($id);
             $culturalArticle->update($request->all());
 
-            // // Update travel information
-            // $travelInformation = $culturalArticle->travelInformation;
-            // $travelInformation->update(['travel_tips' => $request->travel_tips]);
-
-            // // Update accommodations
-            // Accommodation::where('travel_information_id', $travelInformation->id)->delete();
-            // if ($request->has('accommodations')) {
-            //     foreach ($request->accommodations as $accommodationData) {
-            //         Accommodation::create([
-            //             'travel_information_id' => $travelInformation->id,
-            //             'hotel_name' => $accommodationData['hotel_name'],
-            //             'link_to_booking_site' => $accommodationData['link_to_booking_site'] ?? null,
-            //         ]);
-            //     }
-            // }
-
-            // // Update local transports
-            // LocalTransport::where('travel_information_id', $travelInformation->id)->delete();
-            // if ($request->has('local_transports')) {
-            //     foreach ($request->local_transports as $transportData) {
-            //         LocalTransport::create([
-            //             'travel_information_id' => $travelInformation->id,
-            //             'transport_type' => $transportData['transport_type'],
-            //             'details' => $transportData['details'] ?? null,
-            //         ]);
-            //     }
-            // }
-
-            // // Update categories
-            // CulturalArticleCategory::where('cultural_article_id', $culturalArticle->id)->delete();
-            // if ($request->has('categories')) {
-            //     foreach ($request->categories as $categoryId) {
-            //         CulturalArticleCategory::create([
-            //             'cultural_article_id' => $culturalArticle->id,
-            //             'category_id' => $categoryId,
-            //         ]);
-            //     }
-            // }
-
             DB::commit(); // Commit transaction on success
             return response()->json(['message' => 'Cultural Article updated successfully!'], 200);
         } catch (\Exception $e) {
