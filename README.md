@@ -79,7 +79,7 @@ php artisan migrate
 php artisan serve
 ```
 
-### For the frontend, 
+### For the frontend:
 
 1. Navigate to the `client` directory:
 
