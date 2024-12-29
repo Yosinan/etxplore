@@ -30,31 +30,33 @@ EtXplore is a web application that allows users to explore Ethiopian culture, hi
 git clone https://github.com/Yosinan/etxplore
 ```
 
-2.1 For the backend, navigate to the `api` directory:
+### For the backend:
+
+1. Navigate to the `api` directory:
 
 ```bash
 cd api
 ```
 
-2.2 Install the dependencies:
+2. Install the dependencies:
 
 ```bash
 composer install
 ```
 
-2.3 Create a `.env` file by copying the `.env.example` file:
+3. Create a `.env` file by copying the `.env.example` file:
 
 ```bash
 cp .env.example .env
 ```
 
-2.4 Generate an application key:
+4. Generate an application key:
 
 ```
 php artisan key:generate
 ```
 
-2.5 Create a new database and update the `.env` file with your database credentials:
+5. Create a new database and update the `.env` file with your database credentials:
 
 ```
 DB_CONNECTION=mysql
@@ -65,31 +67,33 @@ DB_USERNAME=your_database_username
 DB_PASSWORD=your_database_password
 ```
 
-2.6 Run the migrations to create the database tables:
+6. Run the migrations to create the database tables:
 
 ```
 php artisan migrate
 ```
 
-2.7 Start the Laravel server:
+7. Start the Laravel server:
 
 ```
 php artisan serve
 ```
 
-3.1 For the frontend, navigate to the `client` directory:
+### For the frontend, 
+
+1. Navigate to the `client` directory:
 
 ```bash
 cd client
 ```
 
-3.2 Install the dependencies:
+2. Install the dependencies:
 
 ```bash
 npm install
 ```
 
-3.3 Start the React server:
+3. Start the React server:
 
 ```bash
 npm run dev
