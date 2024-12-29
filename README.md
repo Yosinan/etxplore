@@ -77,7 +77,7 @@ php artisan migrate
 php artisan serve
 ```
 
-3. 1 For the frontend, navigate to the `client` directory:
+3.1 For the frontend, navigate to the `client` directory:
 
 ```bash
 cd client
@@ -97,7 +97,7 @@ npm run dev
 
 4. Open your browser and navigate to `http://localhost:5173` to view the application.
 
-## Link to the report document
+## Report Document
 
 [EtXplore Report](https://docs.google.com/document/d/19G5mFLOPeWewphFSZELr3HNBvNUf3naNeHdxZcEo6Gs/edit?usp=sharing)
 
