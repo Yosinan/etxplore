@@ -101,6 +101,10 @@ npm run dev
 
 [EtXplore Report](https://docs.google.com/document/d/19G5mFLOPeWewphFSZELr3HNBvNUf3naNeHdxZcEo6Gs/edit?usp=sharing)
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a pull request or open an issue if you encounter any bugs or have any suggestions for improvements.
