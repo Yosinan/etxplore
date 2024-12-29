@@ -103,7 +103,7 @@ npm run dev
 
 ## Report Document
 
-[EtXplore Report](https://docs.google.com/document/d/19G5mFLOPeWewphFSZELr3HNBvNUf3naNeHdxZcEo6Gs/edit?usp=sharing)
+- [EtXplore Report](https://docs.google.com/document/d/19G5mFLOPeWewphFSZELr3HNBvNUf3naNeHdxZcEo6Gs/edit?usp=sharing)
 
 ## License
 
