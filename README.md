@@ -97,6 +97,10 @@ npm run dev
 
 4. Open your browser and navigate to `http://localhost:5173` to view the application.
 
+## Link to the report document
+
+[EtXplore Report](https://docs.google.com/document/d/19G5mFLOPeWewphFSZELr3HNBvNUf3naNeHdxZcEo6Gs/edit?usp=sharing)
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a pull request or open an issue if you encounter any bugs or have any suggestions for improvements.
