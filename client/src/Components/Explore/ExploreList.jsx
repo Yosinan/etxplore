@@ -16,10 +16,12 @@ export default function ExploreList() {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
 
+  // Handle Category Click
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
 
+  // Handle Region Change
   const handleRegionChange = (event) => {
     setSelectedRegion(event);
   };
@@ -50,11 +52,14 @@ export default function ExploreList() {
   }, []);
 
   useEffect(() => {
+
+    // Fetch Regions
     const fetchRegions = async () => {
       const response = await axios.get(`${baseUrl}/regions`);
       setRegions(response.data);
     };
 
+    // Fetch Categories
     const fetchCategories = async () => {
       const response = await axios.get(`${baseUrl}/categories`);
       // console.log("Categories:", response.data);
@@ -66,6 +71,7 @@ export default function ExploreList() {
   }, []);
 
   useEffect(() => {
+    // Filter Articles based on selected Region and Category
     const filterArticles = () => {
       let filtered = articles;
 
