@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Modal } from "antd";
+
 import {
   Navbar,
   MobileNav,
@@ -22,12 +24,32 @@ import LogoutConfirmation from "../PopUpMessages/logoutConfirmPopUp"; // Import 
 import { baseUrl } from "../../utils/api";
 import axios from "axios";
 
-export default function NavbarDefault() {
+export default function NavbarDefault({ setbackgroundColor }) {
   const [openNav, setOpenNav] = useState(false);
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false); // State for logout confirmation
   const location = useLocation(); // To track the current page location
   const navigate = useNavigate();
   const { logout } = useAuth();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleBackgroundColorChange = (event) => {
+    const newColor = event.target.value;
+    console.log(newColor);
+    setbackgroundColor(newColor); // Update the background color in the parent component
+  };
 
   // Get authentication state
   const { isLoggedIn, setIsLoggedIn } = useAuth(); // Assume setIsLoggedIn is available in the context
@@ -55,7 +77,47 @@ export default function NavbarDefault() {
     location.pathname === "/" || location.pathname === "/explore";
 
   const navList = (
-    <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-16">
+    <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-10">
+      <Modal
+        title="Customize Background"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}>
+        {/* Background Color Picker */}
+        <div style={{ marginBottom: "16px" }}>
+          <label
+            htmlFor="backgroundColor"
+            style={{ display: "block", marginBottom: "8px" }}>
+            Background Color:
+          </label>
+          <input
+            type="color"
+            id="backgroundColor"
+            name="backgroundColor"
+            onChange={handleBackgroundColorChange} // Attach the handler
+            style={{
+              width: "100%",
+              padding: "8px",
+              borderRadius: "4px",
+              border: "1px solid #ccc",
+            }}
+          />
+        </div>
+
+        {/* Apply Button */}
+        <button
+          onClick={handleCancel}
+          style={{
+            padding: "8px 16px",
+            backgroundColor: "#1890ff",
+            color: "#fff",
+            border: "none",
+            borderRadius: "4px",
+          }}>
+          Apply Changes
+        </button>
+      </Modal>
+
       <Typography
         as="li"
         variant="small"
@@ -118,6 +180,34 @@ export default function NavbarDefault() {
         </Link>
       </Typography>
 
+      <Typography
+        as="li"
+        variant="small"
+        className="flex items-center gap-x-2 p-1 roboto-bold">
+        <Button
+          onClick={showModal}
+          className={`flex items-center gap-x-1 p-1 roboto-bold bg-transparent ${
+            isHomeOrExplore
+              ? "text-white hover:text-green-500"
+              : "text-black hover:text-green-500"
+          }`}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5"
+            />
+          </svg>
+          Customize
+        </Button>
+      </Typography>
+
       {/* Display Login/Logout or Profile link based on login status */}
       {!isLoggedIn ? (
         <Typography
@@ -163,7 +253,7 @@ export default function NavbarDefault() {
 
   return (
     <>
-      <Navbar className="mx-auto w-full py-2 lg:py-4 bg-transparent backdrop-blur-md border-none">
+      <Navbar className="mx-auto py-2 lg:py-4 bg-transparent backdrop-blur-md border-none">
         <div className="container mx-auto flex items-center justify-between text-white">
           {/* Brand Logo */}
           <Typography
